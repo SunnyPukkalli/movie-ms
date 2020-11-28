@@ -3,23 +3,33 @@ package com.ms.movieinfoservice.resource;
 
 import com.ms.movieinfoservice.model.Movie;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
+
 @RestController
 @RequestMapping("/movies/")
 public class MovieResource {
 
-    @GetMapping("{movieId}")
-    public Movie getMovieInfo(@PathVariable("movieId") String movieId){
 
-        String movieName = RandomStringUtils.randomAlphabetic(5);
-        String description = RandomStringUtils.randomAlphabetic(10);
+    Logger logger = LoggerFactory.getLogger(MovieResource.class);
 
-        return new Movie(movieId,movieName,description);
+    @GetMapping(value = "/{movieId}" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public Movie getMovieInfo(@PathVariable("movieId") Integer movieId){
+
+        logger.info("Input Movie Id is :"+movieId);
+
+        // return Random Movie Details
+        Movie movie = new Movie(movieId, RandomStringUtils.randomAlphabetic(5),RandomStringUtils.randomAlphabetic(10)) ;
+        logger.info("Returning Movie with Details :"+movie);
+
+        return movie;
     }
 
 }
