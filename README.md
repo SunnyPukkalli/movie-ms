@@ -2,6 +2,9 @@
 
 ### *Movie Microservice*
 
+- Eureka Server
+  - Spring Cloud Eureka Server with 8761 port exposed
+
 - Movie Catalog Service
   - URL Exposed : `http://localhost:8080/catalog/1` [ Returns Movie Information and Ratings based on User Information passed ]
   - Call Ratings Service to fetch movie ratings given by user
