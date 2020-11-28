@@ -4,6 +4,8 @@
 
 - Eureka Server
   - Spring Cloud Eureka Server with 8761 port exposed
+  - Eureka Server UI : `http://localhost:8761/`
+  - Eureka Server URL to be used by client : `http://localhost:8761/eureka/`
 
 - Movie Catalog Service
   - URL Exposed : `http://localhost:8080/catalog/1` [ Returns Movie Information and Ratings based on User Information passed ]
