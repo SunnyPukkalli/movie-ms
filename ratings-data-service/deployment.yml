@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ratings-data
+  labels:
+    app: ratings-data
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ratings-data
+  template:
+    metadata:
+      labels:
+        app: ratings-data
+    spec:
+      containers:
+        - name: ratings-data
+          image: 'gcr.io/beaming-botany-293512/ratings-data:gcp1'
+          env:
+            - name: PROFILE
+              value: cloud
+          ports:
+            - containerPort: 8080
