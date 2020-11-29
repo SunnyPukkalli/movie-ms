@@ -6,4 +6,4 @@
 - Deploy Applications.
 - Create Service for each MS and access using External IP
 
-* One Issue with Eureka : Resolve later *
+* One Issue with Eureka : Resolve later
