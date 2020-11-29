@@ -39,7 +39,7 @@ public class RatingsResource {
         return new Rating(movieId,random.nextInt());
     }
 
-    @RequestMapping("/users/{userId}")
+    @RequestMapping(value = "/users/{userId}",produces = MediaType.APPLICATION_JSON_VALUE)
     public UserRating getUserRating(@PathVariable("userId")  String userId){
 
         /*
