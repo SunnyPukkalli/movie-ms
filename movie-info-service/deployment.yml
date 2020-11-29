@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-info-deploy
+  labels:
+    app: movie-info
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: movie-info
+  template:
+    metadata:
+      labels:
+        app: movie-info
+    spec:
+      containers:
+        - name: movie-info
+          image: 'gcr.io/$GOOGLE_CLOUD_PROJECT/movie-info:gcp1'
+          env:
+            - name: PROFILE
+              value: cloud
+          ports:
+            - containerPort: 8080
