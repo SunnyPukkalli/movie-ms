@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-catalog
+  labels:
+    app: movie-catalog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: movie-catalog
+  template:
+    metadata:
+      labels:
+        app: movie-catalog
+    spec:
+      containers:
+        - name: movie-catalog
+          image: 'gcr.io/beaming-botany-293512/movie-catalog:gcp1'
+          env:
+            - name: PROFILE
+              value: cloud
+          ports:
+            - containerPort: 8080
