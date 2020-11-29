@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: movie-info-deploy
+  name: movie-info
   labels:
     app: movie-info
 spec:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: movie-info
-          image: 'gcr.io/$GOOGLE_CLOUD_PROJECT/movie-info:gcp1'
+          image: 'gcr.io/beaming-botany-293512/movie-info:gcp1'
           env:
             - name: PROFILE
               value: cloud
